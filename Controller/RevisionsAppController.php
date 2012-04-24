@@ -2,4 +2,3 @@
 class RevisionsAppController extends AppController {
 
 }
-?>

@@ -2,4 +2,3 @@
 class RevisionsAppModel extends AppModel {
 
 }
-?>

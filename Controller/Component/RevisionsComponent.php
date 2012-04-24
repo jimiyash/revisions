@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Revisions Component
  *
@@ -13,7 +14,7 @@
  */
 class RevisionsComponent extends Component {
 
-	var $controller;
+	protected $_controller;
 
 /**
  * Called after the Controller::beforeFilter() and before the controller action
@@ -22,6 +23,8 @@ class RevisionsComponent extends Component {
  * @return void
  */
 	public function startup(Controller $controller) {
+		$this->_controller = $controller;
+
 		$controller->set('RevisionsComponent', 'RevisionsComponent startup');
 
 		// Check the controller to see if it's an admin page
@@ -40,7 +43,6 @@ class RevisionsComponent extends Component {
  * @return void
  */
 	public function beforeRender(Controller $controller) {
-
 	}
 
 /**

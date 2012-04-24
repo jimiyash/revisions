@@ -161,15 +161,15 @@ class RevisionsController extends NodesController {
 	 */
 	public function view($id = null) {
 
-		if (isset($this->params['slug'])){
-			$this->params['named']['slug'] = $this->params['slug'];
-			$this->params['named']['revision'] = $this->params['revision'];
-			$this->params['named']['type'] = $this->params['type'];
+		if (isset($this->request->params['slug'])){
+			$this->request->params['named']['slug'] = $this->request->params['slug'];
+			$this->request->params['named']['revision'] = $this->request->params['revision'];
+			$this->request->params['named']['type'] = $this->request->params['type'];
 
 			// What node are we looking at?
 			$nodeb = $this->Node->find('first', array(
 				'conditions' => array(
-					'Node.slug' => $this->params['slug']
+					'Node.slug' => $this->request->params['slug']
 				)
 			));
 
@@ -180,8 +180,8 @@ class RevisionsController extends NodesController {
 					'conditions' => array(
 						'Revision.node_id' => $nodeb['Node']['id'],
 						'or' => array(
-							'Revision.tag' => $this->params['revision'],
-							'Revision.id' 	=> $this->params['revision']
+							'Revision.tag' => $this->request->params['revision'],
+							'Revision.id' 	=> $this->request->params['revision']
 						)
 					)
 				));

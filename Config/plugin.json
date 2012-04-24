@@ -1,0 +1,15 @@
+{
+	"name": "Revisions",
+	"description": "Revisions is a plugin for the CakePHP-based Croogo CMS. It tracks any changes to nodes and allows you to edit / tag / create and push old revisions to a node.",
+
+	"author": "Mark Sweep",
+	"authorEmail": "",
+	"authorUrl": "https://github.com/marksweep",
+
+	"dependencies": {
+		"plugins": [
+			"acl",
+			"extensions"
+			]
+		}
+}

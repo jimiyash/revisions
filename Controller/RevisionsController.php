@@ -49,17 +49,17 @@ class RevisionsController extends NodesController {
 	    		if ($revision['Revision']['is_current'] !== 1) {
 		    		
 		    		if ($this->Revision->delete($id)) {
-		    			$this->Session->setFlash(__('Deleted revision'), true);
+						$this->Session->setFlash(__('Deleted revision'));
 		    		} else {
-		    			$this->Session->setFlash(__('Unable to delete revision'), true);
+						$this->Session->setFlash(__('Unable to delete revision'));
 		    		}
 		    	
 		    	} else {
-		    		$this->Session->setFlash(__('Cannot delete current revision'), true);
+					$this->Session->setFlash(__('Cannot delete current revision'));
 		    	}
 			}    		
     	} else {
-    		$this->Session->setFlash(__('Invalid revision id to delete', true));
+			$this->Session->setFlash(__('Invalid revision id to delete'));
 	    }
 	    
 	    $this->redirect($this->referer());
@@ -133,7 +133,7 @@ class RevisionsController extends NodesController {
 	    		// Make this revision the current
 	    		if (!$this->Node->save($node)) {
 	    		
-					$this->Session->setFlash(__('Unable to push revision to current node - save failed', true));	
+					$this->Session->setFlash(__('Unable to push revision to current node - save failed'));
 					$this->redirect($this->referer());
 					
 	    		}
@@ -141,14 +141,14 @@ class RevisionsController extends NodesController {
 	    		// Promote this to the current revision
 	    		$this->Revision->makeCurrent();
 	    		
-    			$this->Session->setFlash(__('Pushed revision to current node', true));
+    			$this->Session->setFlash(__('Pushed revision to current node'));
     			$this->redirect($this->referer());
 	    	}
-	    	$this->Session->setFlash(__('Unable to push revision to current - invalid revision', true));
+	    	$this->Session->setFlash(__('Unable to push revision to current - invalid revision'));
 	    	$this->redirect($this->referer());
     	}
     	
-    	$this->Session->setFlash(__('Unable to push revision to current - invalid  id', true));
+    	$this->Session->setFlash(__('Unable to push revision to current - invalid  id'));
     	$this->redirect($this->referer());
     }
     

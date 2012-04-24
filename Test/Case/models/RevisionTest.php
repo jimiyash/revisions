@@ -7,7 +7,7 @@ App::import('Model', 'Node');
 App::import('Model', 'Taxonomy');
 App::import('Model', 'Vocabulary');
 
-class RevisionTestCase extends CakeTestCase {
+class RevisionTest extends CakeTestCase {
 
     public $fixtures = array(
         'plugin.revisions.revisions',

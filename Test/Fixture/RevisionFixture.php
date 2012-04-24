@@ -1,9 +1,11 @@
 <?php
 /* Revision Fixture  */
-class RevisionFixture extends CakeTestFixture {
-	var $name = 'Revision';
 
-	var $fields = array(
+class RevisionFixture extends CakeTestFixture {
+
+	public $name = 'Revision';
+
+	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => NULL, 'length' => 11, 'key' => 'primary'),
 		'node_id' => array('type' => 'integer', 'null' => true, 'default' => NULL, 'length' => 20),
 		'user_id' => array('type' => 'integer', 'null' => false, 'default' => '0', 'length' => 20),
@@ -17,7 +19,7 @@ class RevisionFixture extends CakeTestFixture {
 		'tableParameters' => array('charset' => 'utf8', 'collate' => 'utf8_unicode_ci', 'engine' => 'InnoDB')
 	);
 
-	var $records = array(
+	public $records = array(
 		array(
 			'id' => 1,
 			'node_id' => 1,
@@ -43,5 +45,5 @@ class RevisionFixture extends CakeTestFixture {
 			'created' => '2012-02-23 00:00:00'
 		),
 	);
+
 }
-?>

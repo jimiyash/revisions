@@ -10,3 +10,6 @@ Croogo::hookHelper('Nodes', 'Revisions.Revisions');
 
 Croogo::hookAdminTab('Nodes/admin_add', 'Revisions', 'Revisions.admin_tab_node');
 Croogo::hookAdminTab('Nodes/admin_edit', 'Revisions', 'Revisions.admin_tab_node');
+
+// loading tinymce and other plugin specific settings
+Configure::load('Revisions.revisions');

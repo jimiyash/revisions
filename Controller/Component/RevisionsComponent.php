@@ -14,22 +14,24 @@
 class RevisionsComponent extends Component {
 
 	var $controller;
+
 /**
  * Called after the Controller::beforeFilter() and before the controller action
  *
  * @param object $controller Controller with components to startup
  * @return void
  */
-    public function startup(&$controller) {
-        $controller->set('RevisionsComponent', 'RevisionsComponent startup');
-        
-        // Check the controller to see if it's an admin page
-        // Set the behavior flag based on params
-        if ($controller->params['controller'] == 'nodes' && $controller->params['action'] == 'admin_edit' || 
-        	$controller->params['controller'] == 'revisions') {
-        	$controller->Node->Behaviors->Revisions->attach = true;
-        }
-    }
+	public function startup(Controller $controller) {
+		$controller->set('RevisionsComponent', 'RevisionsComponent startup');
+
+		// Check the controller to see if it's an admin page
+		// Set the behavior flag based on params
+		if ($controller->request->params['controller'] == 'nodes' && $controller->request->params['action'] == 'admin_edit' ||
+			$controller->request->params['controller'] == 'revisions') {
+			$controller->Node->Behaviors->Revisions->attach = true;
+		}
+	}
+
 /**
  * Called after the Controller::beforeRender(), after the view class is loaded, and before the
  * Controller::render()
@@ -37,18 +39,17 @@ class RevisionsComponent extends Component {
  * @param object $controller Controller with components to beforeRender
  * @return void
  */
-    public function beforeRender(&$controller) {
+	public function beforeRender(Controller $controller) {
 
-    }
-        
+	}
+
 /**
  * Called after Controller::render() and before the output is printed to the browser.
  *
  * @param object $controller Controller with components to shutdown
  * @return void
  */
-    public function shutdown(&$controller) {
-    }
-    
+	public function shutdown(Controller $controller) {
+	}
+
 }
-?>
